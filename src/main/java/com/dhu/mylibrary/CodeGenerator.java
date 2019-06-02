@@ -68,7 +68,7 @@ public class CodeGenerator {
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
 //        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
-        strategy.setInclude(     new String[] { "authority","book","booktype","borrow","user","reader" });
+        strategy.setInclude(     new String[] { "favor" });
 
         strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);

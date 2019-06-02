@@ -6,6 +6,7 @@ import com.dhu.mylibrary.entity.User;
 import com.dhu.mylibrary.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -36,11 +37,18 @@ public class UserController {
     @GetMapping("login")
     public ModelAndView login(){
         ModelAndView mv =new ModelAndView("login");
+        return mv;
+    }
+    @PostMapping("login")
+    public ModelAndView login_post(String username,String password){
+        ModelAndView mv =new ModelAndView("login");
         QueryWrapper<User> wrapper = new QueryWrapper<>();
-        wrapper.eq("userName","杨长辉");
-        wrapper.eq("password","123456");
-
-        mv.addObject("user",service.getOne(wrapper));
+        wrapper.eq("userName",username);
+        wrapper.eq("password",password);
+        User user = service.getOne(wrapper);
+        if(user != null){
+            mv.setViewName("index");
+        }
         return mv;
     }
     @GetMapping("pass")
