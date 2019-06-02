@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="/myLibrary/static/css/pintuer.css">
+    <link rel="stylesheet" href="/myLibrary/static/css/admin.css">
+    <script src="/myLibrary/static/js/jquery.js"></script>
+    <script src="/myLibrary/static/js/pintuer.js"></script>
+</head>
+<body style="border-top: 2px">
+<form method="post" action="" id="listform">
+    <div class="panel admin-panel">
+        <div class="panel-head"><strong class="icon-reorder">____类图书借阅排行榜</strong></div>
+        <div class="padding border-bottom">
+            <ul class="search" style="padding-left:10px;">
+
+                <if condition="$iscid eq 1">
+                </if>
+            </ul>
+        </div>
+        <table class="table table-hover text-center">
+            <tr>
+                <th width="20%">书号</th>
+                <th>书名</th>
+                <th>最近一次借出日期</th>
+                <th>借阅状态</th>
+                <th>预留项目</th>
+                <th>预留项目</th>
+
+
+            </tr>
+            <volist name="list" id="vo">
+                <tr>
+                    <td>A0001</td>
+                    <td><a href="ProjectDetail.html"><font color="#00CC99">唐诗三百首</font></a></td>
+                    <td>2077年7月1日</td>
+                    <td>可借</td>
+                    <td>预留项目</td>
+                    <td>预留项目</td>
+                </tr>
+            </volist>
+                <tr>
+                    <td>A0001</td>
+                    <td><a href="ProjectDetail.html">地形探测</a></td>
+                    <td>张三</td>
+                    <td>2016-07-01</td>
+                    <td></td>
+                    <td>立项审核</td>
+
+                <tr>
+                    <td>A0001</td>
+                    <td><a href="ProjectDetail.html">地形探测</a></td>
+                    <td>张三</td>
+                    <td>2016-07-01</td>
+                    <td></td>
+                    <td>立项通过</td>
+
+                <tr>
+                    <td>A0001</td>
+                    <td><a href="ProjectDetail.html">地形探测</a></td>
+                    <td>张三</td>
+                    <td>2016-07-01</td>
+                    <td></td>
+                    <td>中期检查</td>
+
+                <tr>
+                    <td>A0001</td>
+                    <td><a href="ProjectDetail.html">地形探测</a></td>
+                    <td>张三</td>
+                    <td>2016-07-01</td>
+                    <td></td>
+                    <td>中期审核</td>
+
+                <tr>
+                    <td>A0001</td>
+                    <td><a href="ProjectDetail.html">地形探测</a></td>
+                    <td>张三</td>
+                    <td>2016-07-01</td>
+                    <td></td>
+                    <td>中期通过</td>
+                <tr>
+                <tr>
+                    <td>A0001</td>
+                    <td><a href="ProjectDetail.html">地形探测</a></td>
+                    <td>张三</td>
+                    <td>2016-07-01</td>
+                    <td></td>
+                    <td>结题审核</td>
+
+                </tr>
+
+                <tr>
+                    <td>A0001</td>
+                    <td><a href="ProjectDetail.html">地形探测</a></td>
+                    <td>张三</td>
+                    <td>2016-07-01</td>
+                    <td>2016-07-01</td>
+                    <td>结题通过</td>
+                </tr>
+                </td>
+                </tr>
+                <tr>
+                    <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>
+                </tr>
+        </table>
+    </div>
+    </div>
+    </div>
+</form>
+</body>
+</html>

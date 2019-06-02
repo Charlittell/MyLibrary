@@ -28,8 +28,9 @@ public class UserController {
     public String hello(){
         return "hello";
     }
-    @GetMapping("index")
+    @GetMapping("/index")
     public ModelAndView index(){
+        System.out.println("test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         ModelAndView mv =new ModelAndView("index");
         return mv;
     }

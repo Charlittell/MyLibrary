@@ -6,16 +6,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title></title>
-<link rel="stylesheet" href="/css/pintuer.css">
-<link rel="stylesheet" href="/css/admin.css">
-<script src="/js/jquery.js"></script>
-<script src="/js/pintuer.js"></script>
+<link rel="stylesheet" href="/myLibrary/static/css/pintuer.css">
+<link rel="stylesheet" href="/myLibrary/static/css/admin.css">
+<script src="/myLibrary/static/js/jquery.js"></script>
+<script src="/myLibrary/static/js/pintuer.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#form1").submit(function () {
+        var p1 = $("#newpass").val();
+        var p2 = $("#renewpass").val();
+        if(p1 != p2){
+          alert("两次输入的新密码不一致");
+          return false;
+        }
+        return true;
+      });
+    });
+  </script>
 </head>
 <body>
 <div class="panel admin-panel">
   <div class="panel-head"><strong><span class="icon-key"></span> 修改账号密码</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="">
+    <form id="form1" method="post" class="form-x" action="">
       <div class="form-group">
         <div class="label">
           <a>当前帐号:</a>
@@ -39,7 +52,7 @@
           <a>新密码：</a>
         </div>
         <div class="field">
-          <input type="password" class="input w50" name="newpass" size="50" placeholder="请输入新密码" data-validate="required:请输入新密码,length#>=5:新密码不能小于5位" />         
+          <input type="password" id="newpass" class="input w50" name="newpass" size="50" placeholder="请输入新密码" data-validate="required:请输入新密码,length#>=5:新密码不能小于5位" />
         </div>
       </div>
       <div class="form-group">
@@ -47,7 +60,7 @@
           <a>确认新密码：</a>
         </div>
         <div class="field">
-          <input type="password" class="input w50" name="renewpass" size="50" placeholder="请再次输入新密码" data-validate="required:请再次输入新密码,repeat#newpass:两次输入的密码不一致" />          
+          <input type="password" id="renewpass" class="input w50" name="renewpass" size="50" placeholder="请再次输入新密码" data-validate="required:请再次输入新密码,repeat#newpass:两次输入的密码不一致" />
         </div>
       </div>
       
