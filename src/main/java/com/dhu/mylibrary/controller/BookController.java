@@ -1,11 +1,13 @@
 package com.dhu.mylibrary.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.dhu.mylibrary.entity.Book;
+import com.dhu.mylibrary.service.IBookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * <p>
@@ -18,10 +20,13 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 @RequestMapping("/book")
 public class BookController {
-    @GetMapping("tableproject")
-    public ModelAndView tableproject(){
-        ModelAndView mv =new ModelAndView("tableproject");
-        return mv;
+    @Autowired
+    IBookService service;
+    @GetMapping("bookdetail")
+    public Object bookdetail(){
+        QueryWrapper<Book> wrapper = new QueryWrapper<>();
+        wrapper.orderByDesc("borrowCount");
+        return  service.list(wrapper);
     }
 
 }
