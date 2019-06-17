@@ -1,5 +1,6 @@
 package com.dhu.mylibrary.entity;
 
+    import com.baomidou.mybatisplus.annotation.IdType;
     import com.baomidou.mybatisplus.annotation.TableId;
     import com.baomidou.mybatisplus.annotation.TableField;
     import java.io.Serializable;
@@ -22,7 +23,7 @@ package com.dhu.mylibrary.entity;
 
     private static final long serialVersionUID = 1L;
 
-            @TableId("readerId")
+            @TableId(value = "readerId",type = IdType.INPUT)
     private Integer readerId;
 
         @TableField("realName")

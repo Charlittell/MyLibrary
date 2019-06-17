@@ -34,10 +34,10 @@ package com.dhu.mylibrary.entity;
     private Integer borrowId;
 
         @TableField("borrowDate")
-    private LocalDate borrowDate;
+    private String borrowDate;
 
         @TableField("returnDate")
-    private LocalDate returnDate;
+    private String returnDate;
 
         @TableField("renewCount")
     private Integer renewCount;

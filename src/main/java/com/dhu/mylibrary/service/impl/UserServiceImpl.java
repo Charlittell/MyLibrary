@@ -16,5 +16,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+    @Override
+    public void changePass(String newpass, Integer userId) {
+        baseMapper.changePass(newpass,userId);
+    }
 
+    @Override
+    public void signup(String userName, String password) {
+        baseMapper.signup(userName,password);
+    }
 }

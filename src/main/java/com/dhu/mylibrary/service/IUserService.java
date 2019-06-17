@@ -12,5 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2019-06-01
  */
 public interface IUserService extends IService<User> {
-
+    public void changePass(String newpass,Integer userId);
+    public void signup (String userName,String password);
 }

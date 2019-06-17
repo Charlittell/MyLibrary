@@ -61,6 +61,16 @@ public class UserController {
         ModelAndView mv =new ModelAndView("personnew");
         return mv;
     }
+    @PostMapping("changepass")
+    public String changePass(String newpass,Integer userId){
+        service.changePass(newpass,userId);
+        return "true";
+    }
 
+    @PostMapping("signup")
+    public void signup(String userName,String password)
+    {
+        service.signup(userName,password);
+    }
 
 }

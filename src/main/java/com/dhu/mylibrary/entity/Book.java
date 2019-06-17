@@ -17,7 +17,7 @@ package com.dhu.mylibrary.entity;
 * @since 2019-06-01
 */
     @Data
-        @EqualsAndHashCode(callSuper = false)
+    @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)
     public class Book implements Serializable {
 
