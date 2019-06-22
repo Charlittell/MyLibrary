@@ -22,9 +22,9 @@ public class BookDynaSqlProvider {
                     if(book.getBookId() != null && !book.getBookId().equals("")){
                         WHERE("bookId LIKE CONCAT('%',#{book.bookId},'%')");
                     }
-                    if(book.getTypeId() != null && !book.getTypeId().equals("")){
-                        WHERE("typeName LIKE CONCAT('%',#{book.typeId},'%')");
-                    }
+//                    if(book.getTypeId() != null && !book.getTypeId().equals("")){
+//                        WHERE("typeName LIKE CONCAT('%',#{book.typeId},'%')");
+//                    }
                     if(book.getPublisher() != null && !book.getPublisher().equals("")){
                         WHERE("publisher LIKE CONCAT('%',#{book.publisher},'%')");
                     }

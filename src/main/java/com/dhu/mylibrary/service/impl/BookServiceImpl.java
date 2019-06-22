@@ -25,15 +25,28 @@ import java.util.Map;
 public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IBookService {
     @Override
     public IPage<List<Book>> selectBookList(Page page) {
-        QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("typeId",1);
-        return baseMapper.selectPage(page,wrapper);
+        return baseMapper.selectPage(page,null);
     }
 
     @Override
     public List<Book> selectBookByCondition(Book book) {
         Map<String,Object> params = new HashMap<>();
         params.put("book",book);
+
+
+
+
         return baseMapper.selectByCondition(params);
+    }
+
+    @Override
+    public IPage<List<Book>> searchBook(Book book, Page page) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.like(null != book.getAuthor(),"author",book.getAuthor())
+                .like(null != book.getBookName(),"bookName",book.getBookName())
+                .like(null != book.getPublisher(),"publisher",book.getPublisher())
+                .like(null!=book.getBookId(),"bookId",book.getBookId())
+                .like(null!= book.getTypeName(),"typeName",book.getTypeName());
+        return baseMapper.selectPage(page,wrapper);
     }
 }

@@ -24,6 +24,6 @@ public interface IBookService extends IService<Book> {
      * */
     List<Book> selectBookByCondition(Book book);
 
-
+    public IPage<List<Book>> searchBook(Book book,Page page);
 
 }

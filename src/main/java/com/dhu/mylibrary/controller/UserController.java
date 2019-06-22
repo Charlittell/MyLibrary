@@ -4,12 +4,10 @@ package com.dhu.mylibrary.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.dhu.mylibrary.entity.User;
 import com.dhu.mylibrary.service.IUserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -39,17 +37,31 @@ public class UserController {
         ModelAndView mv =new ModelAndView("login");
         return mv;
     }
+//    @PostMapping("login")
+//    public ModelAndView login_post(String username,String password){
+//        ModelAndView mv =new ModelAndView("login");
+//        QueryWrapper<User> wrapper = new QueryWrapper<>();
+//        wrapper.eq("userName",username);
+//        wrapper.eq("password",password);
+//        User user = service.getOne(wrapper);
+//        if(user != null){
+//            mv.setViewName("index");
+//        }
+//        return mv;
+//    }
+
+
     @PostMapping("login")
-    public ModelAndView login_post(String username,String password){
-        ModelAndView mv =new ModelAndView("login");
+    @ResponseBody
+    public User login(@Param("stuno") String stuno,@Param("password") String password){
         QueryWrapper<User> wrapper = new QueryWrapper<>();
-        wrapper.eq("userName",username);
+        wrapper.eq("userName",stuno);
         wrapper.eq("password",password);
+        System.out.println(stuno+password);
         User user = service.getOne(wrapper);
-        if(user != null){
-            mv.setViewName("index");
-        }
-        return mv;
+        System.out.println(user);
+
+        return user;
     }
     @GetMapping("pass")
     public ModelAndView pass(){
@@ -68,9 +80,43 @@ public class UserController {
     }
 
     @PostMapping("signup")
-    public void signup(String userName,String password)
+    public String  signup(String userName,String password)
     {
         service.signup(userName,password);
+        return "true";
+    }
+
+    @GetMapping("showuser")
+    public Object  showUser()
+    {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.le("authority",50);
+      return service.list(wrapper);
+    }
+
+    @PostMapping("deleteuser")
+    public boolean deleteUser(@RequestBody User user){
+
+        return service.removeById(user.getUserId());
+    }
+
+    @PostMapping("usersearch")
+    public Object userSearch(@RequestBody User user){
+        QueryWrapper wrapper =new QueryWrapper();
+        if(user.getUserId() != null){
+            wrapper.eq("userId",user.getUserId());
+        }
+        else{
+            wrapper.eq("userName",user.getUserName());
+        }
+
+        return service.list(wrapper);
+    }
+    @PostMapping("addadmin")
+    public Object addAdmin(@RequestBody User user){
+        user.setAuthority(99);
+        service.updateById(user);
+        return null;
     }
 
 }

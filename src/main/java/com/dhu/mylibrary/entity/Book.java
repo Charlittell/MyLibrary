@@ -4,6 +4,8 @@ package com.dhu.mylibrary.entity;
     import com.baomidou.mybatisplus.annotation.TableId;
     import com.baomidou.mybatisplus.annotation.TableField;
     import java.io.Serializable;
+
+    import com.fasterxml.jackson.annotation.JsonProperty;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -33,7 +35,8 @@ package com.dhu.mylibrary.entity;
             * ISBN号（11位)
             */
         @TableField("ISBN")
-    private String isbn;
+        @JsonProperty("ISBN")
+    private String ISBN;
 
             /**
             * 书名
@@ -81,13 +84,15 @@ package com.dhu.mylibrary.entity;
             /**
             * 图书类型编号
             */
-        @TableField("typeId")
-    private Integer typeId;
+        @TableField("typeName")
+    private String typeName;
 
             /**
             * 书架编号
             */
     private Integer shelter;
+
+    private String description;
 
 
 }

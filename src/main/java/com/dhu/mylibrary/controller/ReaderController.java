@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.dhu.mylibrary.entity.Reader;
 import com.dhu.mylibrary.service.IReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +24,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class ReaderController {
     @Autowired
     IReaderService service;
-    public Object updateReader(Reader reader){
+
+    @PostMapping("updatereader")
+    public Object updateReader(@RequestBody Reader reader){
+
+        System.out.println(reader);
         return service.updateById(reader);
+    }
+
+    @PostMapping("readerinfo")
+    public Object getReader(Integer readerId){
+        return  service.getReaderInfo(readerId);
     }
 }
