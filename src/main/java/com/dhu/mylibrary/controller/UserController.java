@@ -27,16 +27,16 @@ public class UserController {
     public String hello(){
         return "hello";
     }
-    @GetMapping("index")
-    public ModelAndView index(){
-        ModelAndView mv =new ModelAndView("index");
-        return mv;
-    }
-    @GetMapping("login")
-    public ModelAndView login(){
-        ModelAndView mv =new ModelAndView("login");
-        return mv;
-    }
+//    @GetMapping("index")
+//    public ModelAndView index(){
+//        ModelAndView mv =new ModelAndView("index");
+//        return mv;
+//    }
+//    @GetMapping("login")
+//    public ModelAndView login(){
+//        ModelAndView mv =new ModelAndView("login");
+//        return mv;
+//    }
 //    @PostMapping("login")
 //    public ModelAndView login_post(String username,String password){
 //        ModelAndView mv =new ModelAndView("login");
@@ -63,16 +63,16 @@ public class UserController {
 
         return user;
     }
-    @GetMapping("pass")
-    public ModelAndView pass(){
-        ModelAndView mv =new ModelAndView("pass");
-        return mv;
-    }
-    @GetMapping("personnew")
-    public ModelAndView person(){
-        ModelAndView mv =new ModelAndView("personnew");
-        return mv;
-    }
+//    @GetMapping("pass")
+//    public ModelAndView pass(){
+//        ModelAndView mv =new ModelAndView("pass");
+//        return mv;
+//    }
+//    @GetMapping("personnew")
+//    public ModelAndView person(){
+//        ModelAndView mv =new ModelAndView("personnew");
+//        return mv;
+//    }
     @PostMapping("changepass")
     public String changePass(String newpass,Integer userId){
         service.changePass(newpass,userId);
